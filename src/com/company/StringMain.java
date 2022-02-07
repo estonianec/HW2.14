@@ -3,7 +3,7 @@ package com.company;
 import com.company.services.StringList;
 import com.company.services.impl.StringListImpl;
 
-public class Main {
+public class StringMain {
 
     public static void main(String[] args) {
         StringList stringList = new StringListImpl();
