@@ -28,9 +28,7 @@ public class StringListImpl implements StringList {
 
     @Override
     public String add(int index, String item) {
-        if (index > position || index < 0) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
+        checkIncomingIndex(index);
         isNeedResize();
         if (position - index >= 0) System.arraycopy(array, index, array, index + 1, position - index);
         array[index] = item;
@@ -38,21 +36,26 @@ public class StringListImpl implements StringList {
         return item;
     }
 
-    @Override
-    public String set(int index, String item) {
+    public void checkIncomingIndex(int index) {
         if (index < 0 || index > position) {
             throw new ArrayIndexOutOfBoundsException();
         }
+    }
+
+    @Override
+    public String set(int index, String item) {
+        checkIncomingIndex(index);
         array[index] = item;
         return item;
     }
 
     @Override
     public String remove(String item) {
-        if (indexOf(item) < 0) {
+        int index = indexOf(item);
+        if (index < 0) {
             throw new IllegalArgumentException();
         }
-        remove(indexOf(item));
+        remove(index);
         return item;
     }
 
@@ -121,12 +124,12 @@ public class StringListImpl implements StringList {
 
     @Override
     public int size() {
-        return array.length;
+        return position;
     }
 
     @Override
     public boolean isEmpty() {
-        return array[0] == null;
+        return position == 0;
     }
 
     @Override
