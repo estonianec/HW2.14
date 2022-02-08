@@ -3,6 +3,7 @@ package com.company;
 import com.company.services.IntList;
 import com.company.services.impl.IntListImpl;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class IntMain {
@@ -76,6 +77,7 @@ public class IntMain {
             System.out.println(testSortArray.get(i));
         }
 
+
         testSortArray.sort();
 
         System.out.println("After sort");
@@ -85,7 +87,7 @@ public class IntMain {
 
 //        IntList testContainsArray = new IntListImpl();
 //        generateRandomIntList(testContainsArray, 100);
-
+//
 //        int[] randArr = new int[100_000];
 //        randArr = generateRandomArray(randArr);
 //        int[] arrForSortA = Arrays.copyOf(randArr, randArr.length);
@@ -105,11 +107,11 @@ public class IntMain {
 
 
 }
-//    private static void swapElements(int[] arr, int indexA, int indexB) {
-//        int tmp = arr[indexA];
-//        arr[indexA] = arr[indexB];
-//        arr[indexB] = tmp;
-//    }
+    private static void swapElements(int[] arr, int indexA, int indexB) {
+        int tmp = arr[indexA];
+        arr[indexA] = arr[indexB];
+        arr[indexB] = tmp;
+    }
 //    public static void sortBubble(int[] arr) {
 //        for (int i = 0; i < arr.length - 1; i++) {
 //            for (int j = 0; j < arr.length - 1 - i; j++) {
@@ -156,4 +158,5 @@ public class IntMain {
         }
         return arr;
     }
+
 }
